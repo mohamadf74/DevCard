@@ -11,7 +11,7 @@ namespace DevCard_Project.ViewComponents
     {
         public IViewComponentResult Invoke()
         {
-            var projects = new List<ProjectModel>()
+            var projects = new List<ProjectModel>
             {
                 new ProjectModel(1, "درخواست تاکسی", "درخواست آنلاین تاکسی برای سفرهای درون شهری", "project-1.jpg","اسنپ"),
                 new ProjectModel(2, "زودفود", "درخواست آنلاین غذا برای سراسر کشور","project-2.jpg", "زودفود"),
