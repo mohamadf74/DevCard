@@ -117,3 +117,5 @@ E:\Learn programming\web\atriya\asp core 5\Exercise\03-mvc part2\DevCard\DevCard
 E:\Learn programming\web\atriya\asp core 5\Exercise\03-mvc part2\DevCard\DevCard_Project\obj\Debug\net5.0\Razor\Views\Home\ProjectsPartialView.cshtml.g.cs
 E:\Learn programming\web\atriya\asp core 5\Exercise\03-mvc part2\DevCard\DevCard_Project\obj\Debug\net5.0\Razor\Views\Home\Components\Projects\_ProjectsViewComponent.cshtml.g.cs
 E:\Learn programming\web\atriya\asp core 5\Exercise\03-mvc part2\DevCard\DevCard_Project\obj\Debug\net5.0\Razor\Views\Home\Components\LatestArticle\_latestArticleViewComponent.cshtml.g.cs
+E:\Learn programming\web\atriya\asp core 5\Exercise\03-mvc part2\DevCard\DevCard_Project\obj\Debug\net5.0\Razor\Views\Shared\HeaderPartialView.cshtml.g.cs
+E:\Learn programming\web\atriya\asp core 5\Exercise\03-mvc part2\DevCard\DevCard_Project\obj\Debug\net5.0\Razor\Views\Shared\FooterPartialView.cshtml.g.cs
