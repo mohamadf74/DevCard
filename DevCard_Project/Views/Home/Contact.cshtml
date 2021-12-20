@@ -55,14 +55,28 @@
 </section>
 <section class="contact-section px-3 py-5 p-md-5">
     <div class="container">
+        @if (!string.IsNullOrWhiteSpace(ViewBag.success))
+        {
+            <div class="alert-success">
+                <p>@ViewBag.success</p>
+            </div>
+        }
+        @if (!string.IsNullOrWhiteSpace(ViewBag.error))
+        {
+            <div class="alert-danger">
+                <p>@ViewBag.error</p>
+            </div>
+        }
+
         <form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="post" asp-action="Contact">
+
             <h3 class="text-center mb-3">در دسترس باشید!</h3>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label class="sr-only" asp-for="name">نام</label>
-                    <input type="text" class="form-control" asp-for="name"  placeholder="نام" >
+                    <input type="text" class="form-control" asp-for="name" placeholder="نام">
                     <span asp-validation-for="name" class="text-danger"></span>
-                    
+
                 </div>
                 <div class="form-group col-md-6">
                     <label class="sr-only" asp-for="email">ایمیل</label>
@@ -70,12 +84,9 @@
                     <span asp-validation-for="email" class="text-danger"></span>
                 </div>
                 <div class="form-group col-12">
-                    <select id="services" class="custom-select" asp-for="service">
-                        <option selected>سرویس مورد نظر خود را انتخاب کنید...</option>
-                        <option value="basic">نقره ای</option>
-                        <option value="standard">طلایی</option>
-                        <option value="premium">پلاتین</option>
-                        <option value="not sure">الماس</option>
+                    <select id="services" class="custom-select" asp-for="service" asp-items="Model.Services">
+                        <option selected value="">سرویس مورد نظر خود را انتخاب کنید...</option>
+                       
                     </select>
                     <span asp-validation-for="service" class="text-danger"></span>
                 </div>

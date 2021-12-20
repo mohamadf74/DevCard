@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DevCard_Project.Controllers
 {
@@ -19,6 +20,14 @@ namespace DevCard_Project.Controllers
             _logger = logger;
         }
 
+        private readonly List<Service> _services = new List<Service>
+        {
+            new Service(1,"نقره ای"),
+            new Service(2,"طلایی"),
+            new Service(3,"پلاتین"),
+            new Service(4,"الماس"),
+        };
+
         public IActionResult Index()
         {
             return View();
@@ -26,21 +35,41 @@ namespace DevCard_Project.Controllers
         [HttpGet]
         public IActionResult Contact()
         {
-            var model = new ContactForm();
+            var model = new ContactForm
+            {
+                Services = new SelectList(_services,"Id","Name")
+            };
             return View(model);
         }
         //[HttpPost]
-        //public IActionResult Contact(IFormCollection form)
+        //public IActionResult Contact(IFormCollection model)
         //{
-        //    var name = form["name"];
+        //    var name = model["name"];
         //    return Json(Ok());
         //}
 
         [HttpPost]
-        public IActionResult Contact(ContactForm form)
+        public IActionResult Contact(ContactForm model)
         {
-            var name = form.name;
-            return Json(Ok());
+            model.Services = new SelectList(_services, "Id", "Name");
+            if (!ModelState.IsValid)
+            {
+                ViewBag.success = null;
+                ViewBag.error = "اطلاعات وارد شده صحیح نمی باشد.";
+                return View(model);
+            }
+
+            ModelState.Clear();
+
+            model = new ContactForm()
+            {
+                Services = new SelectList(_services, "Id", "Name")
+            };
+
+            ViewBag.success = "پیام شما با موفقیت ثبت شد.با تشکر";
+            return View(model);
+
+            
         }
  
 

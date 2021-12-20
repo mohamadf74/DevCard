@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DevCard_Project.Models
 {
@@ -17,9 +18,11 @@ namespace DevCard_Project.Models
         public string email { get; set; }
 
         [Required(ErrorMessage = "این فیلد اجباری است.")]
-        public string service { get; set; }
+        public int service { get; set; }
 
         [Required(ErrorMessage = "این فیلد اجباری است.")]
         public string message { get; set; }
+
+        public SelectList Services { get; set; }
     }
 }
