@@ -1,0 +1,35 @@
+﻿@model ProjectModel
+@{
+    ViewData["Title"] = "جزئیات محصول";
+}
+
+@{
+    if (@Model==null)
+    {
+        <p>پروژه ای با این مشخصات یافت نشد</p>
+    }
+    else
+    {
+        <table class="tab-content table-active">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>Image</td>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Client</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td><img src="~/assets/images/project/@Model.Image" width="100"/></td>
+                <td>@Model.Name</td>
+                <td>@Model.Description</td>
+                <td>@Model.Client</td>
+            </tr>
+            </tbody>
+        </table>
+    }
+}
+

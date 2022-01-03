@@ -6,8 +6,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using DevCard_Project.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace DevCard_Project.Controllers
 {
@@ -31,6 +33,12 @@ namespace DevCard_Project.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult ProjectDetails(long id)
+        {
+            var project = ProjectsData.getProjectBy(id);
+            return View(project);
         }
         [HttpGet]
         public IActionResult Contact()
